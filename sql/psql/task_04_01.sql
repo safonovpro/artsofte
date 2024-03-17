@@ -8,6 +8,6 @@ with df as (
 ) select
     to_char(month, 'TMMonth') || ' ' || to_char(month, 'YYYY') as period,
     total as revenue_by_month,
-    sum(total) over (rows between unbounded preceding and current row)
+    sum(total) over (rows between unbounded preceding and current row) as revenue_cumulative
 from df;
 
